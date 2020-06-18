@@ -1,0 +1,64 @@
+/* <div id="app-movies">
+<%- include('../partials/head') %> 
+<div class="movies-outer-container">
+    <% movieDataToBeProcessed.forEach((movie) => { %>
+        <div class="movie-inner-container">
+            <div class="movie-inner-center-poster-plus-description-container">
+                <div class="movie-inner-center-poster-only-container">
+                    <img class="movie-poster-img" src="<%= `https://image.tmdb.org/t/p/w500/${movie.poster_path}` %>" alt="Movie Poster"/>
+                </div>
+                <div class="movie-inner-center-description-only-container">
+                    <p class="movie-title-display"> <%= movie.title %></p>
+                    <p class="movie-full-description-display"><%= movie.overview %></p>
+                </div>
+            </div>    
+        </div>
+    <% }); %> 
+    
+</div> */
+
+
+.movies-outer-container {
+    
+    background-color: rgb(41, 40, 40);
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.movie-inner-container {
+
+    border: 3px solid rgb(126, 123, 123);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 35%;
+    /* margin: 10px; */
+
+}
+
+.movie-inner-center-poster-plus-description-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+
+    
+}
+.movie-poster-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 175px;
+}
+.movie-title-display {
+    font-size: 2em;
+}
+.movie-full-description-display {
+    color: black;
+    text-align:center;
+    font-size: small;
+    
+
+}
