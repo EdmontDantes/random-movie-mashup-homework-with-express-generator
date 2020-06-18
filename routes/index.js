@@ -1,5 +1,9 @@
 const router = require('express').Router();
-const { index, loginRenderView, loginPostPassportAndValidateInput } = require('../controller/usersControllers');
+const { index, loginRenderView, logged, loginPostPassportAndValidateInput } = require('../controller/usersControllers');
+
+// Check for authentication used in app.js as well for base paths
+const { checkAuthentication } = require('../middlewares/isAuthenticated')
+
 
 // Validate user input for login
 const { check, validationResult } = require('express-validator');
@@ -13,7 +17,7 @@ const loginValidate = (req, res, next) => {
     const info = validationResult(req);
     if(!info.isEmpty()) {
         req.flash('errors', 'Invalid Email or Password');
-        return res.redirect('/login');
+        return res.redirect('/');
     }
     next();
 }
@@ -21,8 +25,9 @@ const loginValidate = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', index);
-router.get('/login', loginRenderView);
+// router.get('/login', loginRenderView);
 router.post('/login', loginCheck, loginValidate , loginPostPassportAndValidateInput);
+router.get('/logged', logged)
 
 
 // app.post('/register', (req, res) => {

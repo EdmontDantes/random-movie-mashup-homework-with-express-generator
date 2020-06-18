@@ -5,22 +5,21 @@ const passport = require('passport');
 
 module.exports = {
     index: (req, res) => {
-        User.find()
-        .then((users) => {
-            return res.status(200).json(users);
-        })
-        .catch((err) => err);
+        res.render('./main/index')
     },
     loginRenderView: (req, res) => {
-        res.render('./main/login');
+        res.render('./main/logged');
     },
     loginPostPassportAndValidateInput: () => {
     passport.authenticate('local-login', {
-        successRedirect: './main/logged',
-        failureRedirect: './main/login',
+        successRedirect: '/logged',
+        failureRedirect: '/',
         failureFlash: true
         })
     },
+    logged: (req, res) => {
+        res.render('./main/logged')
+    }
 
     
 

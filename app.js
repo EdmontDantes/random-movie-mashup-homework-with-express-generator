@@ -28,6 +28,8 @@ const { localVars } = require('./middlewares/localVariables');
 const User = require('./model/User');
 
 //
+//using Authentication to view thirdparty Base path, used the same in all routes for more security 
+const { checkAuthentication } = require('./middlewares/isAuthenticated')
 const indexRouter = require('./routes/index');
 const thirdParty = require('./routes/thirdParty');
 
@@ -86,9 +88,9 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // use public files here
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // !!! testing purposes only REMEBER TO REMOVE LATER
 app.use((req, res, next) => {
@@ -99,7 +101,12 @@ app.use((req, res, next) => {
 
 
 // local Variables middleware goes here
-app.use(localVars);
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    res.locals.errors = req.flash('errors');
+    res.locals.success = req.flash('success');
+    next()
+})
 
 // base routes
 app.use('/', indexRouter);
@@ -184,11 +191,11 @@ app.use('/thirdparty', thirdParty);
 
 
 
-app.get('/logout', (req, res) => {
-    req.logout();
-    req.flash('success', 'You are now logged out');
-    res.redirect('/bootstrap');
-})
+// app.get('/logout', (req, res) => {
+//     req.logout();
+//     req.flash('success', 'You are now logged out');
+//     res.redirect('/bootstrap');
+// })
 
 
 // catch 404 and forward to error handler
