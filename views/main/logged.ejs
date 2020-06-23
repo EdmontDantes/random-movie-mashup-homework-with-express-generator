@@ -8,7 +8,7 @@
     </head>
 <body>
     <div class="app">
-        <div class="contaier">    
+        <div class="container">    
             <div class="logged-header">
                 <h1>Choose Your API</h1>
                 <h2>Hello, you are logged in as <%- user.name %> | <a id="logout-link" href="/users/logout">Logout</a> </h2>
@@ -16,12 +16,12 @@
             <div class="main-content">
                 <div class="movies-forward">
                     <div class="movies-forward-container">
-                        <img width="300px" src='/images/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg' alt="The MovieDB Logo"/>
-                        <p>Look into what movies are playing now using movieDB API</p>
+                        <a href="/users/movies"><img width="300px" src='/images/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg' alt="The MovieDB Logo"/>
+                        <p>Look into what movies are playing now using movieDB API</p></a>
                     </div>
                     <div class="random-forward-container">
-                        <img width="300px" src='/images/group-people-illustration-set_52683-33806.jpg' alt="Random Users People Picture"/>
-                        <p>View Random Users here using Random Users API</p>
+                        <a href="/users/random"><img width="300px" src='/images/group-people-illustration-set_52683-33806.jpg' alt="Random Users People Picture"/>
+                        <p>View Random Users here using Random Users API</p></a>
                     </div>
                 </div>
             </div>

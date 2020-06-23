@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Pacifico&display=swap');
 
 * {
@@ -22,20 +23,10 @@ h2 {
 #logout-link {
     font-size: 1em;
 }
-
-.app {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#options-link {
+    font-size: 1em;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
 
 .logged-header {
     display: flex;
@@ -43,24 +34,38 @@ h2 {
     justify-content: center;
     align-items: center;
 }
-.main-container {
+
+.individuals-outer-container {
+    
+    
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-
-    align-self: flex-start;
-
-}
-
-.movies-forward-container {
-    display: flex;
-    flex-direction: column;
+    flex-flow: row wrap;
     justify-content: center;
 }
 
-.random-forward-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.individual-inner-container {
+    padding: 20px;
+
 }
 
+.individual-inner-center-picture-plus-name-container {
+    dispaly: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(44, 43, 43);
+    padding: 10px 30px 10px 30px;
+}
+
+.individual-inner-center-name-only-container {
+
+}
+.individual-full-name-display {
+    color: white;
+    text-align:center;
+
+}
+.individual-picture-img {
+
+    border-radius: 100%;
+}

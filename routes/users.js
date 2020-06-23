@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-
+// thirdparty controllers
 const { moviesPosterDescriptionController, randomUsersDataController } = require('../controllers/thirdPartyControllers');
 
 // const router = require('express').Router();
@@ -49,7 +49,7 @@ router.post('/login', loginCheck, loginValidate , passport.authenticate('local-l
   failureRedirect: '/',
   failureFlash: true
   }));
-router.get('/logged', logged)
+router.get('/logged', checkAuthentication, logged)
 
 /// have to use register function staight here since it doens't redirect to / route inside controller it will redirect to users/
 router.post('/register', (req, res) => {
@@ -82,16 +82,20 @@ router.post('/register', (req, res) => {
 
   }
 })
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success', 'You are now logged out');
+  res.redirect('/');
+})
 
-
-router.get('/movies', moviesPosterDescriptionController);
-router.get('/random', randomUsersDataController);
+router.get('/movies', checkAuthentication, moviesPosterDescriptionController);
+router.get('/random', checkAuthentication, randomUsersDataController);
 
 module.exports = router;
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 module.exports = router;
