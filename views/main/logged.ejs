@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/logged.css">
+    </head>
+<body>
+    <div class="app">
+        <div class="contaier">    
+            <div class="logged-header">
+                <h1>Choose Your API</h1>
+                <h2>Hello, you are logged in as <%- user.name %> | <a id="logout-link" href="/users/logout">Logout</a> </h2>
+            </div>
+            <div class="main-content">
+                <div class="movies-forward">
+                    <div class="movies-forward-container">
+                        <img width="300px" src='/images/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg' alt="The MovieDB Logo"/>
+                        <p>Look into what movies are playing now using movieDB API</p>
+                    </div>
+                    <div class="random-forward-container">
+                        <img width="300px" src='/images/group-people-illustration-set_52683-33806.jpg' alt="Random Users People Picture"/>
+                        <p>View Random Users here using Random Users API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
